@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5fa">
+  <meta name="description" content="40道轻松生活题，测测你最容易吸引哪种恋人。">
+  <title>你容易吸引什么样的恋人？｜一场温柔的自我探索</title>
+  <style>
+    :root {
+      --paper: #fff5fa; --paper-deep: #f8e9f1; --ink: #4d3548; --muted: #806e7e;
+      --jade: #d879a2; --jade-dark: #a64f79; --gold: #c89eaf; --coral: #e47d9f;
+      --lavender: #eee8fb; --line: rgba(143, 91, 121, .17); --white: #fffdfd; --shadow: 0 24px 70px rgba(141, 82, 119, .12);
+      --serif: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+      --sans: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100vh; color: var(--ink); font-family: var(--sans); background: radial-gradient(ellipse at 8% 10%, rgba(255,225,238,.72), transparent 34%), radial-gradient(ellipse at 92% 82%, rgba(235,226,250,.75), transparent 36%), var(--paper); }
+    body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .28; background-image: radial-gradient(rgba(170,112,145,.15) .55px, transparent .55px); background-size: 8px 8px; }
+    button { color: inherit; font: inherit; }
+    .shell { min-height: 100vh; overflow: hidden; }
+    .topbar { width: min(1120px, calc(100% - 48px)); margin: auto; height: 82px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; letter-spacing: .13em; font-size: 12px; }
+    .brand-mark { width: 34px; height: 34px; border: 1px solid var(--gold); border-radius: 50%; color: var(--jade-dark); background: #fffafd; display: grid; place-items: center; font: 18px var(--serif); box-shadow: 0 4px 14px rgba(204,132,166,.14); }
+    .top-note { font-size: 11px; letter-spacing: .18em; color: var(--muted); }
+    main { width: min(1120px, calc(100% - 48px)); min-height: calc(100vh - 132px); margin: auto; display: grid; align-items: center; padding: 55px 0 72px; }
+    .view { display: none; animation: rise .48s cubic-bezier(.2,.7,.25,1) both; }
+    .view.active { display: block; }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .hero { display: grid; grid-template-columns: 1fr .88fr; gap: 54px; align-items: center; }
+    .eyebrow { margin: 0 0 22px; color: var(--jade); font-size: 11px; letter-spacing: .27em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--gold); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 21px; font: 500 clamp(40px, 6vw, 72px)/1.2 var(--serif); letter-spacing: .045em; }
+    h1 em { font-style: normal; color: var(--jade); display: block; }
+    .lead { max-width: 450px; color: #746374; font: 16px/1.9 var(--serif); letter-spacing: .03em; }
+    .hero-meta { display: flex; gap: 22px; margin: 28px 0 32px; color: var(--muted); font-size: 12px; letter-spacing: .08em; }
+    .hero-meta span { display: flex; align-items: center; gap: 8px; }
+    .hero-meta i { width: 4px; height: 4px; border-radius: 50%; background: var(--coral); }
+    .primary-btn, .ghost-btn { border: 0; cursor: pointer; transition: transform .2s, background .2s, box-shadow .2s; }
+    .primary-btn { display: inline-flex; align-items: center; gap: 22px; padding: 16px 24px; border-radius: 999px; background: linear-gradient(135deg, #bd5b89, #a54673); color: #fffafd; letter-spacing: .12em; font-size: 13px; box-shadow: 0 9px 22px rgba(181,78,126,.22); }
+    .primary-btn:hover { background: linear-gradient(135deg, #ad4e7e, #913b67); transform: translateY(-2px); box-shadow: 0 13px 25px rgba(181,78,126,.28); }
+    .primary-btn .arrow { font-size: 18px; line-height: 12px; }
+    .hero-art { min-height: 490px; position: relative; display: grid; place-items: center; }
+    .halo { width: min(100%, 455px); aspect-ratio: 1; border-radius: 50%; position: relative; display: grid; place-items: center; background: radial-gradient(circle at 47% 42%, #fffaff 0 28%, #f9e8f1 28.3% 52%, #eccbdc 52.3% 52.7%, transparent 53%), conic-gradient(from 18deg, transparent 0 11%, rgba(207,145,174,.7) 11.2% 11.5%, transparent 11.7% 48%, rgba(183,153,211,.55) 48.2% 48.5%, transparent 48.7%); }
+    .halo::before, .halo::after { content: ""; position: absolute; border: 1px solid rgba(207,145,174,.58); border-radius: 50%; inset: 9%; transform: rotate(-26deg) scaleX(.74); }
+    .halo::after { inset: 17%; transform: rotate(33deg) scaleX(.78); border-color: rgba(183,153,211,.48); }
+    .heart-seal { width: 49%; aspect-ratio: 1; z-index: 1; border-radius: 50%; background: linear-gradient(145deg, #e9a4c0, #c979a4 58%, #ae79b0); color: #fff9fc; box-shadow: inset 0 0 0 1px rgba(255,255,255,.48), 0 18px 44px rgba(176,103,151,.28); display: grid; place-items: center; text-align: center; position: relative; }
+    .heart-seal::before { content: "♡"; position: absolute; font: 145px/1 var(--serif); opacity: .14; transform: translateY(-5px); }
+    .seal-copy { z-index: 1; }
+    .seal-copy small { display: block; margin-bottom: 10px; color: #ffe4ef; letter-spacing: .34em; font-size: 10px; }
+    .seal-copy strong { display: block; font: 27px/1.6 var(--serif); letter-spacing: .16em; }
+    .orbit { position: absolute; color: var(--coral); font: 24px var(--serif); }
+    .orbit.one { top: 12%; right: 19%; } .orbit.two { bottom: 17%; left: 13%; color: var(--gold); font-size: 17px; }
+    .caption { position: absolute; right: 0; bottom: 2%; color: #92768d; writing-mode: vertical-rl; letter-spacing: .22em; font: 11px/1.7 var(--serif); }
+    .fineprint { margin: 21px 0 0; color: #988595; font-size: 10px; line-height: 1.8; }
+    .quiz-wrap { max-width: 790px; margin: 0 auto; }
+    .quiz-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; color: var(--muted); font-size: 11px; letter-spacing: .16em; }
+    .question-count { color: var(--jade); font: 17px var(--serif); letter-spacing: .06em; }
+    .progress-track { height: 3px; border-radius: 999px; background: #f0dfe9; position: relative; margin-bottom: 56px; }
+    .progress-fill { width: 2.5%; height: 100%; background: var(--coral); transition: width .35s ease; position: relative; }
+    .progress-fill::after { content: ""; width: 8px; height: 8px; background: var(--coral); border-radius: 50%; position: absolute; right: -4px; top: -3px; }
+    .question-kicker { margin-bottom: 15px; color: var(--gold); font-size: 11px; letter-spacing: .25em; }
+    .question-title { min-height: 83px; max-width: 700px; margin-bottom: 32px; font: 500 clamp(24px, 4vw, 34px)/1.6 var(--serif); letter-spacing: .025em; }
+    .choices { display: grid; gap: 12px; }
+    .choice { width: 100%; padding: 17px 19px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,253,253,.76); text-align: left; cursor: pointer; display: flex; align-items: center; gap: 16px; transition: .2s ease; color: #594759; font-size: 14px; line-height: 1.6; box-shadow: 0 4px 14px rgba(157,103,137,.045); }
+    .choice:hover { border-color: rgba(216,121,162,.62); background: #fffafd; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,111,151,.11); }
+    .choice.selected { border-color: var(--jade); background: #fff0f6; box-shadow: inset 3px 0 var(--jade), 0 5px 16px rgba(201,111,151,.12); }
+    .choice-mark { flex: 0 0 23px; width: 23px; height: 23px; border: 1px solid #d9b8ca; border-radius: 50%; display: grid; place-items: center; color: #bc7a9d; font: 11px var(--serif); }
+    .choice.selected .choice-mark { background: var(--jade); color: white; border-color: var(--jade); }
+    .quiz-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; }
+    .ghost-btn { padding: 10px 0; background: transparent; color: #8e788b; font-size: 12px; letter-spacing: .08em; }
+    .ghost-btn:hover { color: var(--jade); }
+    .next-btn { display: inline-flex; align-items: center; gap: 15px; background: transparent; border: 0; color: var(--jade); cursor: pointer; font-size: 12px; letter-spacing: .12em; opacity: .42; transition: opacity .2s; }
+    .next-btn.ready { opacity: 1; }
+    .result-shell { width: min(850px,100%); margin: auto; }
+    .result-card { background: linear-gradient(145deg, #fffefe, #fffafd 62%, #fdf8ff); border: 1px solid rgba(207,145,174,.48); border-radius: 25px; box-shadow: var(--shadow); position: relative; padding: clamp(25px, 6vw, 58px); overflow: hidden; }
+    .result-card::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(207,145,174,.27); border-radius: 17px; pointer-events: none; }
+    .result-card::after { content: "♡"; position: absolute; right: 6%; top: 9%; color: rgba(199,126,169,.10); font: 170px/1 var(--serif); pointer-events: none; }
+    .result-topline { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+    .result-label { color: var(--jade); font-size: 10px; letter-spacing: .26em; }
+    .result-index { color: #a28d9e; font: 12px var(--serif); letter-spacing: .12em; }
+    .result-kicker { margin: 38px 0 12px; color: var(--coral); font-size: 11px; letter-spacing: .26em; }
+    .result-title { position: relative; z-index: 1; margin-bottom: 5px; font: 500 clamp(32px, 6vw, 54px)/1.35 var(--serif); letter-spacing: .08em; }
+    .result-subtitle { color: var(--muted); font: 15px/1.8 var(--serif); letter-spacing: .05em; }
+    .quote { position: relative; z-index: 1; margin: 24px 0 29px; padding: 15px 19px; border-left: 3px solid var(--coral); border-radius: 0 13px 13px 0; background: linear-gradient(100deg, #fff0f6, #f4efff); color: #744d68; font: 17px/1.7 var(--serif); letter-spacing: .04em; }
+    .signature { position: relative; z-index: 1; margin: -15px 0 27px; color: var(--coral); font: 12px/1.8 var(--serif); letter-spacing: .08em; }
+    .result-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 38px; position: relative; z-index: 1; }
+    .result-section { border-top: 1px solid var(--line); padding-top: 15px; }
+    .result-section h3 { margin-bottom: 9px; color: var(--gold); font-size: 10px; font-weight: 500; letter-spacing: .22em; }
+    .result-section p { margin: 0; color: #6e5d6c; font: 13px/1.9 var(--serif); }
+    .second-match { display: inline-flex; gap: 8px; align-items: center; padding: 8px 12px; margin-top: 17px; border-radius: 999px; background: #f2edfb; color: #785f8a; font-size: 11px; letter-spacing: .05em; }
+    .score-line { margin-top: 12px; display: flex; align-items: center; gap: 10px; color: #927f90; font-size: 10px; }
+    .score-bar { width: 100px; height: 4px; border-radius: 999px; background: #f0e2eb; }
+    .score-bar b { display: block; height: 100%; background: var(--jade); }
+    .result-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
+    .result-actions .primary-btn { padding: 14px 20px; font-size: 11px; }
+    .share-btn { padding: 14px 20px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,253,253,.75); cursor: pointer; color: #785d73; font-size: 11px; letter-spacing: .1em; transition: .2s; }
+    .share-btn:hover { background: #fffafd; border-color: var(--jade); }
+    .disclaimer { margin: 15px 0 0; text-align: center; font-size: 10px; color: #988796; }
+    footer { width: min(1120px, calc(100% - 48px)); min-height: 50px; margin: auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); color: #988797; font-size: 10px; letter-spacing: .08em; }
+    .toast { position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 16px); opacity: 0; pointer-events: none; background: #66435d; border-radius: 999px; color: white; padding: 11px 17px; font-size: 12px; transition: .25s; z-index: 5; box-shadow: 0 8px 24px rgba(83,51,78,.2); }
+    .toast.show { opacity: 1; transform: translate(-50%,0); }
+    @media (max-width: 760px) {
+      .topbar, main, footer { width: min(100% - 36px, 600px); }
+      .topbar { height: 66px; } .top-note { font-size: 9px; letter-spacing: .1em; }
+      main { padding: 36px 0 45px; min-height: calc(100vh - 116px); }
+      .hero { grid-template-columns: 1fr; gap: 12px; }
+      .hero-copy { order: 1; } .hero-art { order: 0; min-height: 250px; margin: -8px auto 10px; width: 100%; }
+      .halo { width: min(66vw, 290px); } .heart-seal::before { font-size: 100px; }
+      .seal-copy strong { font-size: 20px; } .seal-copy small { font-size: 8px; }
+      .orbit.one { right: 17%; top: 10%; } .caption { right: 6%; bottom: 0; font-size: 9px; }
+      .eyebrow { margin-bottom: 15px; } h1 { font-size: clamp(38px, 11vw, 54px); margin-bottom: 13px; }
+      .lead { font-size: 14px; } .hero-meta { margin: 20px 0 24px; }
+      .progress-track { margin-bottom: 39px; } .question-title { min-height: 0; margin-bottom: 23px; }
+      .choice { padding: 14px 13px; gap: 12px; font-size: 13px; }
+      .result-card { padding: 32px 25px; } .result-card::before { inset: 8px; }
+      .result-card::after { font-size: 120px; right: 5%; top: 10%; }
+      .result-kicker { margin-top: 30px; } .result-columns { gap: 20px 18px; }
+      .result-section p { font-size: 12px; } footer { font-size: 9px; }
+    }
+    @media (max-width: 430px) {
+      .brand { font-size: 10px; gap: 8px; } .brand-mark { width: 29px; height: 29px; }
+      .hero-meta { gap: 13px; font-size: 10px; }
+      .result-columns { grid-template-columns: 1fr; gap: 17px; }
+      .quote { font-size: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="回到首页"><span class="brand-mark">缘</span><span>心动吸引力研究所</span></a>
+      <div class="top-note">A LITTLE TEST ABOUT LOVE</div>
+    </header>
+    <main>
+      <section id="home" class="view active" aria-labelledby="hero-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">给你的心动磁场做个小测</p>
+            <h1 id="hero-title">你容易吸引<em>什么样的恋人？</em></h1>
+            <p class="lead">你说话的方式、安放情绪的习惯，甚至周末怎么度过，都藏着一种独特的吸引力。用 40 个生活小选择，看看谁最容易被你的频率打动。</p>
+            <div class="hero-meta"><span><i></i>40 道轻松单选</span><span><i></i>约 4 分钟</span><span><i></i>即刻揭晓</span></div>
+            <button id="startBtn" class="primary-btn">开始探索 <span class="arrow">↗</span></button>
+            <p class="fineprint">这是一场关于相处偏好的趣味探索，不是心理诊断，也不替你定义关系。</p>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="halo"><span class="orbit one">✳</span><span class="orbit two">✦</span><div class="heart-seal"><div class="seal-copy"><small>THE SHAPE OF</small><strong>你的<br>心动磁场</strong></div></div></div>
+            <div class="caption">遇见与你同频的人</div>
+          </div>
+        </div>
+      </section>
+      <section id="quiz" class="view" aria-live="polite">
+        <div class="quiz-wrap">
+          <div class="quiz-head"><span>心动线索采集中</span><span class="question-count" id="questionCount">01 / 40</span></div>
+          <div class="progress-track" role="progressbar" aria-label="答题进度" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div>
+          <p class="question-kicker" id="questionKicker">NO. 01 · 日常节奏</p>
+          <h2 class="question-title" id="questionTitle"></h2>
+          <div class="choices" id="choices"></div>
+          <div class="quiz-foot"><button class="ghost-btn" id="backBtn">← 上一题</button><button class="next-btn" id="nextBtn">下一题 <span>→</span></button></div>
+        </div>
+      </section>
+      <section id="result" class="view" aria-live="polite">
+        <div class="result-shell">
+          <article class="result-card" id="resultCard"></article>
+          <div class="result-actions"><button id="shareBtn" class="share-btn">分享这份心动画像 ↗</button><button id="restartBtn" class="primary-btn">再测一次 <span class="arrow">↻</span></button></div>
+          <p class="disclaimer">结果仅供娱乐与自我观察。真正适合你的人，永远值得在真实相处中慢慢认识。</p>
+        </div>
+      </section>
+    </main>
+    <footer><span>心动吸引力研究所</span><span>愿每一次靠近，都刚刚好</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    // 每个答案对应一种吸引信号；七种结果分别描述最容易被你吸引的恋人气质。
+    const profiles = [
+      { name: '安心守护型', subtitle: '总有人想把偏爱，认真放进你的日常。', quote: '“你不必逞强，我愿意做那个让你放心的人。”', traits: '真诚、稳稳的善意，以及让人卸下防备的可靠感。你不一定最会表达，却总能把承诺落在细节里。', reason: '你习惯先照顾好生活、也愿意倾听别人的难处。这种踏实又不控制的温度，很容易吸引重视承诺、愿意长期经营关系的人。', strength: '你能把喜欢变成可触摸的日常：记得小事、说到做到，也给关系留出安稳的空间。', easter: '彩蛋：你很可能是朋友圈里“出了事第一个想到的人”，而某个人正悄悄想成为你的第一顺位。', slogan: '你的温柔有落点，喜欢你的人也想有个归处。' },
+      { name: '热烈行动派', subtitle: '你的光一亮，总有人想和你并肩出发。', quote: '“别只说改天了，走，现在就去看那场日落。”', traits: '鲜活、坦荡、有感染力。你愿意尝试，也敢把喜欢说出口，让生活很难一直平淡。', reason: '你身上有种“和你在一起，日子会展开”的能量。行动力强、表达直接的人很容易被你吸引，他们喜欢把心意变成邀约和计划。', strength: '你能带动关系向前，也让对方更勇敢地表达热情。和你在一起，心动不必猜太久。', easter: '彩蛋：下一次临时起意的邀约，可能藏着一段意料之外的故事。记得把舒服和边界也放进行程。', slogan: '你像一阵好风，让心动的人忍不住跟上。' },
+      { name: '温柔共鸣型', subtitle: '有人会因为被你懂得，而想多靠近一点。', quote: '“你刚刚没说完的那句话，我有认真听。”', traits: '细腻、体贴、情绪感受力强。你能听见话语之外的情绪，也珍惜真诚的回应。', reason: '你会给人安全表达的空间，让对方觉得脆弱也不会被评判。因此温柔敏感、重视沟通与情绪连接的人，容易在你身边找到归属感。', strength: '你能建立很深的信任，让关系不只停在热闹，也能接住真实的喜怒哀乐。', easter: '彩蛋：你记住的那句随口一提，对方也许会记很久。别忘了，你的感受同样值得被认真接住。', slogan: '你听懂了世界，也会遇见愿意听懂你的人。' },
+      { name: '幽默灵动型', subtitle: '你让日常有趣，也让靠近变得毫不费力。', quote: '“跟你聊天怎么这么快？我还没舍得说晚安。”', traits: '松弛、机敏、会发现生活里的小乐趣。你让相处不必端着，笑声里总有默契。', reason: '你的轻盈感降低了陌生和尴尬，让人觉得靠近你是一件愉快的事。机灵、有好奇心、愿意一起玩的人，往往会被你的节奏吸引。', strength: '你能替关系打开轻松的入口，也懂得用玩笑化解紧张；与此同时，你的真心比幽默更有分量。', easter: '彩蛋：最容易对你心动的人，可能先从“你怎么这么好笑”开始，再慢慢发现你很认真。', slogan: '你把普通日子说成段子，也把心动说成了默契。' },
+      { name: '独立自由型', subtitle: '你越自在，越吸引懂得尊重的人。', quote: '“我喜欢你，也喜欢你有自己的世界。”', traits: '有主见、边界清楚、保有自己的热爱。你不靠黏在一起证明感情，反而让相处更有呼吸感。', reason: '你散发出自洽而开放的气质。珍惜空间、不想互相束缚，也愿意平等同行的人，会欣赏你的独立并被你的真实吸引。', strength: '你让亲密与自由可以同时存在，能鼓励彼此成长，也不把爱情变成生活的全部。', easter: '彩蛋：那个说“你忙完再找我”的人，或许真的在等你分享今天看到的风景。', slogan: '你有自己的远方，也会遇见愿意并肩而不牵绊的人。' },
+      { name: '才华知己型', subtitle: '你的脑海很辽阔，有人想和你聊到月亮落下。', quote: '“这个想法我也想过——我们再多聊一会儿吧。”', traits: '好奇、专注、有自己的审美与判断。你愿意钻进喜欢的事，也享受有内容的交流。', reason: '你展现出独特的视角和持续生长的兴趣，会吸引欣赏思考、尊重专业、喜欢精神交流的人。他们想认识的不只是你的答案，还有你的好奇心。', strength: '你能带来启发，让彼此在关系里一起发现新东西；你对热爱的投入，也让平凡日常闪闪发光。', easter: '彩蛋：一场关于冷门话题的长谈，也可能是某段恋情最有趣的开场白。', slogan: '你的灵魂自带话题，知己会循着好奇心找到你。' },
+      { name: '神秘反差型', subtitle: '看似安静的你，总让人想多了解一点。', quote: '“你还有多少面，是我还没发现的？”', traits: '克制、有层次、不急着讨好。你的安静并不疏离，熟悉之后常有出人意料的鲜活一面。', reason: '你不会一下交出全部故事，却能让真诚的人感受到内在的丰富。细心、耐心、喜欢慢慢了解一个人的恋人，容易被这份反差吸引。', strength: '你有筛选关系的直觉，也能在安全时刻展现柔软。真正靠近你的人，会珍惜这份来之不易的信任。', easter: '彩蛋：你真正熟起来之后的样子，可能和初见时完全不同。那份反差常常是心动的“后劲”。', slogan: '你不是难以靠近，只是值得被认真读懂。' }
+    ];
+    const categories = ['日常节奏','处事方式','社交气场','情绪回应','兴趣偏好','亲密边界','表达习惯','生活审美','相处默契','直觉选择'];
+    // 格式：[问题, [[选项, 吸引信号编号], ...]]。共 40 题，所有选项均参与同一套得分逻辑。
+    const questions = [
+      ['终于有一个完全属于自己的周末，你最想怎么过？', [['睡到自然醒，把家里和心情都收拾舒服',1],['马上约人去没去过的地方走走',1],['找个安静角落看书、听歌或发呆',4],['约喜欢的人好好吃饭，聊聊近况',2]]],
+      ['朋友临时说“我今天有点不开心”，你通常会？', [['先问清楚发生了什么，再陪TA想办法',0],['直接出现，带TA出去透口气',1],['安静听TA说，不急着给建议',2],['先讲个轻松的事，让TA笑一下',3]]],
+      ['走进一场热闹的聚会，你更像？', [['照顾落单的人，让大家都自在',0],['很快加入话题，带起气氛',1],['和熟悉的几个人聊得很深',2],['先观察，遇到感兴趣的人再开口',6]]],
+      ['做一件重要的事时，你更依赖哪种方式？', [['列好计划，按步骤稳稳推进',0],['先行动，在变化里找机会',1],['听听相关的人怎么想',2],['自己研究透了再开始',5]]],
+      ['你最喜欢收到哪种消息？', [['“到家告诉我，我等你消息。”',0],['“收拾一下，半小时后出发！”',1],['“看到这个就想到你了。”',2],['“我发现了一个你一定会喜欢的东西。”',5]]],
+      ['面对一个新爱好，你通常会？', [['先了解清楚，再挑适合自己的入门方式',5],['直接上手，边玩边学',1],['找朋友一起试试看',3],['自己慢慢摸索，享受独处时间',4]]],
+      ['意见不同时，你更倾向于？', [['把事实和方案摆出来，找到可执行的办法',0],['坦白说出自己的观点，快速讨论',1],['先理解对方为什么这么想',2],['不急着争论，回头再想想',6]]],
+      ['你理想中的聊天更像？', [['轻松聊聊今天，彼此报个平安',0],['想到什么说什么，话题不断冒出来',3],['可以聊感受，也愿意听对方说心事',2],['聊想法、作品和那些没有标准答案的问题',5]]],
+      ['计划好的事情突然有变，你第一反应是？', [['重新安排，确保事情能顺利完成',0],['那就换个玩法，也许更有趣',1],['确认大家都还好吗，再商量下一步',2],['暂时接受变化，看看它会带来什么',4]]],
+      ['别人夸你时，哪种评价最让你开心？', [['“交给你我就放心了。”',0],['“你总能把生活过得很有意思。”',3],['“和你说话真的会被理解。”',2],['“你看事情的角度很特别。”',5]]],
+      ['出门旅行，你最在意？', [['路线和住处安排妥当，心里有底',0],['体验新鲜，留很多即兴空间',1],['同行的人聊得来、节奏舒服',2],['能有一段只属于自己的探索时间',4]]],
+      ['你在群聊里通常会？', [['需要时回应，记得重要的事',0],['抛出新话题或有趣的梗',3],['认真接住某个人的话',2],['不常发言，但偶尔一开口就很有想法',6]]],
+      ['看到喜欢的东西，你通常会？', [['考虑实用性，想好之后再入手',0],['心动就行动，快乐值得安排',1],['拍下来分享给在意的人',2],['先研究它的来历和设计',5]]],
+      ['你最受不了哪种相处状态？', [['答应的事情总是没有下文',0],['每天都一样，没有一点新鲜感',1],['有话不说，让人猜来猜去',2],['什么都要一起，没法保留自己的空间',4]]],
+      ['忙了一天之后，什么最能让你恢复能量？', [['一顿热饭和安稳的夜晚',0],['运动、散步或来点新鲜体验',1],['和亲近的人聊一会儿',2],['独处，沉进自己喜欢的世界',4]]],
+      ['你通常怎样表达在意？', [['记住对方需要什么，并默默安排好',0],['直接表达，想见就去见',1],['认真听、及时回应情绪',2],['分享最近发现的好东西或新观点',5]]],
+      ['你觉得最舒服的约会是？', [['一起做饭，慢慢过一个普通晚上',0],['去一个没去过的地方探索',1],['散步聊天，聊到忘记看时间',2],['各自做喜欢的事，想说话时自然靠近',4]]],
+      ['遇到让你尴尬的冷场，你会？', [['找个自然的话题把场面接住',0],['开个玩笑，让气氛松下来',3],['问一个真诚的问题，重新连接',2],['不勉强，享受片刻安静也可以',4]]],
+      ['第一次和一群新朋友吃饭时，你最自然会？', [['留意安排和小细节，让大家都自在',0],['找个有趣的话题，让饭桌热闹起来',3],['认真听大家分享，和聊得来的人多聊几句',2],['先观察每个人的风格，等感兴趣的话题出现再加入',6]]],
+      ['如果朋友要介绍一个人给你，你会期待？', [['靠谱温和，沟通清楚',0],['有活力，愿意一起体验生活',1],['善良细腻，能聊真心话',2],['有自己的世界，带点意外感',6]]],
+      ['看到一条很美的街巷，你会？', [['记下位置，下次带重要的人来',0],['马上拐进去看看',1],['拍张照片，想想适合分享给谁',2],['留心建筑细节和街区故事',5]]],
+      ['当别人向你倾诉烦恼，你最自然的反应是？', [['问“我能帮你做点什么？”',0],['说“走，我们先出去透透气。”',1],['陪TA把感受说完整',2],['帮TA换个角度看这件事',5]]],
+      ['你更容易被哪种小事打动？', [['对方把随口答应的事记在心上',0],['对方突然为见你安排一次惊喜',1],['对方发现你今天有点不一样',2],['对方记得你很久以前提过的冷门喜好',6]]],
+      ['在团队里，你常常会成为？', [['让事情落地、值得托付的人',0],['带大家开动起来的人',1],['协调情绪和关系的人',2],['提出不一样想法的人',5]]],
+      ['如果有一整天空白没安排，你会？', [['把拖了很久的小事处理好',0],['随心出门，走到哪算哪',1],['约个聊得来的人见面',2],['留给兴趣、阅读或独自探索',4]]],
+      ['两个人都忙的时候，你觉得怎样保持联系最舒服？', [['简单报个平安，空下来再认真聊',0],['想到就分享日常，偶尔打个电话',1],['有心事时愿意说，平时也有温柔问候',2],['不必时刻联系，各忙各的也很有默契',4]]],
+      ['你最想和喜欢的人一起完成什么？', [['把生活过得舒服且有秩序',0],['完成一次说走就走的旅行',1],['建立只有彼此懂的日常仪式',2],['一起学会一件新东西',5]]],
+      ['你更常被说哪一点？', [['做事有交代，心里有数',0],['有趣又有行动力',1],['很会体察别人的心情',2],['不太按套路，但很有个人风格',6]]],
+      ['面对喜欢的人，你通常？', [['慢慢观察，确认彼此认真再靠近',0],['有好感就创造机会见面',1],['先从真诚交流和陪伴开始',2],['保持自然，不急着改变自己的节奏',4]]],
+      ['哪种生活画面最让你向往？', [['傍晚回家，有人留了灯和晚饭',0],['牵手去陌生城市看一场演出',1],['窝在沙发上聊到夜深',2],['各自忙完喜欢的事，再交换今天的故事',4]]],
+      ['你更喜欢怎样的礼物？', [['实用又贴心，刚好解决一个小需要',0],['体验类惊喜，比如演出或短途旅行',1],['一封认真写下心意的小卡片',2],['一本有特别来历、看得出花了心思的书',5]]],
+      ['如果你犯了一个小错，最希望对方？', [['就事论事，和你一起处理好',0],['别放大它，带你继续开心过一天',3],['先理解你当时的难处，再聊改进',2],['给你一点时间整理好，再好好沟通',4]]],
+      ['你向往的关系节奏是？', [['稳定清楚，彼此都认真投入',0],['有热情有惊喜，经常一起创造回忆',1],['亲密温柔，能分享真实的自己',2],['亲密但不失自由，各自也能发光',4]]],
+      ['你在社交媒体上更常分享？', [['生活里值得留念的小瞬间',0],['有趣的活动和即时心情',3],['能表达心境的歌、句子或风景',2],['喜欢的作品、知识或独特发现',5]]],
+      ['想到未来，你最期待？', [['日子踏实，身边的人都过得安好',0],['不断尝试，人生有很多新章节',1],['拥有几段真正深厚的关系',2],['持续成长，也保留探索未知的自由',4]]],
+      ['一个人讲起自己热爱的事，你会？', [['认真听完，记下对方在意的细节',0],['被感染，想一起去体验看看',1],['追问这件事带给TA什么感受',2],['也分享自己的相关发现，聊出新方向',5]]],
+      ['你觉得自己最迷人的地方可能是？', [['让人可以放心把事情交给我',0],['总能把平常日子点亮',1],['认真对待每个人的感受',2],['有一点难预测，却始终真诚',6]]],
+      ['关系里出现误会，你倾向于？', [['尽早沟通清楚，不让问题悬着',0],['约出来当面说，气氛对了好解决',1],['先听彼此感受，再慢慢厘清',2],['想清楚自己要表达什么后再谈',5]]],
+      ['你最享受的“被陪伴”是？', [['对方在身边，让小事有人商量',0],['有人陪你去做刚冒出来的计划',1],['即使什么都不做，也懂彼此的心情',2],['各自安静做事，偶尔自然地靠近',4]]],
+      ['如果把你的气质比作一种天气，更像？', [['温暖稳定的晴天',0],['突然放晴、适合出发的风天',1],['细雨后很清透的傍晚',2],['夜色里有星光、让人想多看一会儿',6]]]
+    ];
+    // 记录每类信号在选项中出现的次数；结果按可选机会做平滑归一，避免题目选项分布影响结果。
+    const signalAvailability = profiles.map((_, type) => questions.reduce((sum, [, options]) => sum + options.filter(([, tag]) => tag === type).length, 0));
+
+    const views = [...document.querySelectorAll('.view')];
+    const titleEl = document.getElementById('questionTitle');
+    const choicesEl = document.getElementById('choices');
+    const countEl = document.getElementById('questionCount');
+    const fillEl = document.getElementById('progressFill');
+    const progressEl = document.querySelector('[role="progressbar"]');
+    const nextBtn = document.getElementById('nextBtn');
+    const backBtn = document.getElementById('backBtn');
+    let current = 0;
+    let answers = Array(questions.length).fill(null);
+    let advanceTimer;
+    const letters = ['A','B','C','D'];
+    function showView(id) {
+      views.forEach(v => { v.classList.toggle('active', v.id === id); });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function renderQuestion() {
+      const [prompt, options] = questions[current];
+      const displayNo = String(current + 1).padStart(2, '0');
+      countEl.textContent = `${displayNo} / ${String(questions.length).padStart(2,'0')}`;
+      document.getElementById('questionKicker').textContent = `NO. ${displayNo} · ${categories[current % categories.length]}`;
+      titleEl.textContent = prompt;
+      fillEl.style.width = `${(current / questions.length) * 100}%`;
+      progressEl.setAttribute('aria-valuenow', String(current));
+      choicesEl.replaceChildren();
+      options.forEach(([label], index) => {
+        const button = document.createElement('button');
+        button.type = 'button'; button.className = `choice${answers[current] === index ? ' selected' : ''}`;
+        button.setAttribute('aria-pressed', String(answers[current] === index));
+        const mark = document.createElement('span'); mark.className = 'choice-mark'; mark.textContent = letters[index];
+        const text = document.createElement('span'); text.textContent = label;
+        button.append(mark, text);
+        button.addEventListener('click', () => selectAnswer(index));
+        choicesEl.append(button);
+      });
+      backBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+      nextBtn.innerHTML = current === questions.length - 1 ? '查看结果 <span>↗</span>' : '下一题 <span>→</span>';
+      nextBtn.classList.toggle('ready', answers[current] !== null);
+    }
+    function selectAnswer(index) {
+      answers[current] = index;
+      [...choicesEl.children].forEach((el, i) => {
+        el.classList.toggle('selected', i === index);
+        el.setAttribute('aria-pressed', String(i === index));
+      });
+      nextBtn.classList.add('ready');
+      clearTimeout(advanceTimer);
+      advanceTimer = setTimeout(() => goNext(), 260);
+    }
+    function goNext() {
+      if (answers[current] === null) return;
+      clearTimeout(advanceTimer);
+      if (current === questions.length - 1) { showResult(); return; }
+      current++;
+      renderQuestion();
+    }
+    function calculateScores() {
+      const hits = profiles.map(() => 0);
+      answers.forEach((answer, qi) => {
+        const primary = questions[qi][1][answer][1];
+        hits[primary]++;
+      });
+      // 加入四个虚拟选择（每类先验一次），将结果转成可比较的偏好率。
+      const scores = hits.map((count, i) => (count + 1) / (signalAvailability[i] + 4));
+      const ranked = scores.map((score, i) => ({ score, i })).sort((a,b) => b.score - a.score || a.i - b.i);
+      return { scores, ranked };
+    }
+    function showResult() {
+      const { scores, ranked } = calculateScores();
+      const main = ranked[0], second = ranked[1], profile = profiles[main.i];
+      const strengthPct = Math.round(main.score * 100);
+      const card = document.getElementById('resultCard');
+      card.innerHTML = `
+        <div class="result-topline"><span class="result-label">YOUR ATTRACTION SIGNATURE</span><span class="result-index">心动画像 · ${String(main.i+1).padStart(2,'0')}</span></div>
+        <p class="result-kicker">你最容易吸引的恋人类型</p>
+        <h2 class="result-title">${profile.name}</h2>
+        <p class="result-subtitle">${profile.subtitle}</p>
+        <blockquote class="quote">${profile.quote}</blockquote>
+        <p class="signature">${profile.slogan}</p>
+        <div class="result-columns">
+          <section class="result-section"><h3>你的吸引力气质</h3><p>${profile.traits}</p></section>
+          <section class="result-section"><h3>为什么会吸引他们</h3><p>${profile.reason}</p></section>
+          <section class="result-section"><h3>你没注意到的隐藏优势</h3><p>${profile.strength}</p><div class="score-line"><span>本次信号倾向</span><span class="score-bar"><b style="width:${strengthPct}%"></b></span><span>${strengthPct}%</span></div></section>
+          <section class="result-section"><h3>专属趣味彩蛋</h3><p>${profile.easter}</p><div class="second-match">✦ 同频加成：${profiles[second.i].name}</div></section>
+        </div>`;
+      showView('result');
+    }
+    function restart() {
+      clearTimeout(advanceTimer); current = 0; answers = Array(questions.length).fill(null); renderQuestion(); showView('home');
+    }
+    let toastTimer;
+    function toast(message) {
+      const el = document.getElementById('toast'); el.textContent = message; el.classList.add('show');
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+    }
+    async function shareResult() {
+      const { ranked } = calculateScores();
+      const main = ranked[0];
+      const profile = profiles[main.i];
+      const shareText = `我测出了「${profile.name}」！${profile.slogan}\n你容易吸引什么样的恋人？来测测看。`;
+      if (navigator.share) {
+        const shareData = { title: '你容易吸引什么样的恋人？', text: shareText };
+        if (location.protocol === 'http:' || location.protocol === 'https:') shareData.url = location.href;
+        try { await navigator.share(shareData); return; }
+        catch (error) { if (error && error.name === 'AbortError') return; }
+      }
+      try { await navigator.clipboard.writeText(shareText); toast('结果文案已复制，去分享你的心动画像吧'); }
+      catch {
+        const field = document.createElement('textarea'); field.value = shareText; field.setAttribute('readonly', '');
+        field.style.position = 'fixed'; field.style.opacity = '0'; document.body.append(field); field.select();
+        const copied = document.execCommand('copy'); field.remove();
+        toast(copied ? '结果文案已复制，去分享你的心动画像吧' : shareText);
+      }
+    }
+    document.getElementById('startBtn').addEventListener('click', () => { current = 0; renderQuestion(); showView('quiz'); });
+    nextBtn.addEventListener('click', goNext);
+    backBtn.addEventListener('click', () => { if (current > 0) { clearTimeout(advanceTimer); current--; renderQuestion(); } });
+    document.getElementById('restartBtn').addEventListener('click', restart);
+    document.getElementById('shareBtn').addEventListener('click', shareResult);
+    document.addEventListener('keydown', event => {
+      if (!document.getElementById('quiz').classList.contains('active')) return;
+      if (/^[1-4]$/.test(event.key)) selectAnswer(Number(event.key)-1);
+      if (event.key === 'ArrowRight') goNext();
+      if (event.key === 'ArrowLeft' && current > 0) { current--; renderQuestion(); }
+    });
+  </script>
+</body>
+</html>
+
